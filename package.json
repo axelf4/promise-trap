@@ -1,0 +1,34 @@
+{
+  "name": "promise-trap",
+  "version": "1.0.0",
+  "description": "Records promises enabling an easy Promise.all.",
+  "main": "lib.js",
+  "module": "index.js",
+  "scripts": {
+    "prepare": "babel ./index.js --out-file ./lib.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "promise",
+    "proxy",
+    "all"
+  ],
+  "author": "Axel Forsman <axelsfor@gmail.com>",
+  "license": "ISC",
+  "homepage": "https://github.com/axelf4/promise-trap#readme",
+  "bugs": {
+	  "url": "https://github.com/axelf4/promise-trap/issues"
+  },
+  "repository": "github:axelf4/promise-trap",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.5.0"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}
