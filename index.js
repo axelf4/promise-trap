@@ -23,15 +23,12 @@ export default function promiseTrap(target) {
             if (property === "all") {
                 return () => new Promise(function(resolve, reject) {
                     (function test() {
-                        if (promises.length === 0) resolve();
-                        else {
-                            const all = Promise.all(promises.splice(0));
-                            promises.push(all);
-                            all.finally(() => {
-                                const i = promises.indexOf(all);
-                                if (i !== -1) promises.splice(i, 1);
-                            }).then(test, reject);
-                        }
+                        const all = Promise.all(promises.splice(0));
+                        promises.push(all);
+                        all.finally(() => {
+                            const i = promises.indexOf(all);
+                            if (i !== -1) promises.splice(i, 1);
+                        }).then(() => (promises.length === 0 ? resolve : test)(), reject);
                     })();
                 });
             }

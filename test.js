@@ -54,6 +54,18 @@ test("two calls", async () => {
     expect(callback).toHaveBeenCalledTimes(1);
 });
 
+/* See https://nodejs.org/api/process.html#process_process_nexttick_callback_args */
+test("always asynchronous", () => {
+    const callback = jest.fn();
+    const proxy = promiseTrap(Promise.resolve.bind(Promise));
+    const promise = proxy.all();
+    proxy().then(callback);
+    expect(callback).not.toBeCalled();
+    return promise.then(() => {
+        expect(callback).toHaveBeenCalledTimes(1);
+    });
+});
+
 /*
  * This is intended behaviour. If unsatisfactory,
  * the workaround is symply to wrap the proxy in another private proxy,
