@@ -9,9 +9,10 @@ const isPromise = x => x && typeof x.then === "function";
 
 /**
  * Returns a proxy that takes record of A+ promises, exposing an <tt>all</tt> method.
+ *
  * Promises will be recorded if returned from function or method invocations.
- * The special <tt>all</tt> method returns a promise that resolves when there
- * exists no recorded unresolved promises.
+ * The special <tt>all</tt> method returns a promise that resolves
+ * when all recorded promises are resolved.
  * Note that this includes promises recorded after invoking <tt>all</tt>.
  * @param {!Object} target - The proxy target object.
  * @return {Proxy} The recording proxy.

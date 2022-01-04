@@ -1,11 +1,12 @@
 {
   "name": "promise-trap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Records promises enabling an easy Promise.all.",
   "main": "lib.js",
-  "module": "index.js",
+  "module": "src/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
-    "prepare": "babel ./index.js --out-file ./lib.js",
+    "prepare": "babel src --out-file lib.js",
     "test": "jest"
   },
   "keywords": [
@@ -17,18 +18,22 @@
   "license": "ISC",
   "homepage": "https://github.com/axelf4/promise-trap#readme",
   "bugs": {
-	  "url": "https://github.com/axelf4/promise-trap/issues"
+    "url": "https://github.com/axelf4/promise-trap/issues"
   },
   "repository": "github:axelf4/promise-trap",
+  "files": [
+    "src/index.d.ts"
+  ],
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "jest": "^23.5.0"
+    "@babel/cli": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
+    "core-js": "^3.20.2",
+    "regenerator-runtime": "^0.13.9",
+    "jest": "^27.4.5"
   },
   "babel": {
     "presets": [
-      "env"
+      "@babel/preset-env"
     ]
   }
 }

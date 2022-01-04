@@ -1,5 +1,6 @@
-import "babel-polyfill";
-import promiseTrap from "./index.js";
+import "regenerator-runtime/runtime";
+import "core-js";
+import promiseTrap from "../src/index.js";
 
 /** Returns a promise that is resolved after `i` ticks. */
 const ticks = i => new Promise((resolve, reject) => (y => y(
